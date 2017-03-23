@@ -1,0 +1,26 @@
+#purchase, #price, #quantity, #totalprice, #dailytotal, #weeklytotal, #monthlytotal{
+	width: 5em;	
+}
+label{
+	float: left;
+	width: 8em;
+	text-align: right;	
+}
+label.nofloat{
+	float:none;
+}
+#datepicker{
+	margin-right: .5em;
+}
+input{	
+	margin-left: 1em;
+	margin-bottom: .5em;
+}
+input[type=submit]{	
+	margin-top: 1em;	
+	margin-left:12em;
+}
+input[type=reset]{	
+	margin-top: 1em;	
+}
+
