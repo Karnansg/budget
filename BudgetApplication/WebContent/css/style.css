@@ -23,4 +23,12 @@ input[type=submit]{
 input[type=reset]{	
 	margin-top: 1em;	
 }
-
+label.error{
+	float:none;
+	color:red;
+	font-size:87.5%;
+}
+fieldset{
+	width:650px;	
+	margin:auto;
+}

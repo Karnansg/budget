@@ -26,18 +26,31 @@ public class CalculateBalanceServlet extends HttpServlet {
 	}	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String url = "/result.jsp";
-		String usedAmount = request.getParameter("amount");
-		int convertedUsedAmount = Integer.parseInt(usedAmount);		
+		String date = request.getParameter("datepicker");
+		String item = request.getParameter("item");
+		String price = request.getParameter("price");
+		String quantity = request.getParameter("quantity");		
+		String totalPrice = request.getParameter("totalprice");
+		
+		//int convertedUsedAmount = Integer.parseInt(usedAmount);		
 		int retrievedAmount = AmountDB.selectAmount();
 		
 		//invoke method to compute balance
 		Compute compute = new Compute();
-		double result = compute.balance(retrievedAmount,convertedUsedAmount);
-		String displayResult = Double.toString(result);
+		//double result = compute.balance(retrievedAmount,convertedUsedAmount);
+		//String displayResult = Double.toString(result);
 		
 		//store the result in the session
 		HttpSession session = request.getSession();
-		session.setAttribute ("result",result);
+		//session.setAttribute ("result",result);
+		session.setAttribute("date",date);
+		session.setAttribute("item",item);
+		session.setAttribute("price",price);
+		session.setAttribute("quantity",quantity);
+		session.setAttribute("totalPrice",totalPrice);
+		
+		
+		
 		
 		
 		//forward the request and response to the view

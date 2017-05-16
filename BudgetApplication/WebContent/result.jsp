@@ -7,6 +7,10 @@
 <title>Account Balance</title>
 </head>
 <body>
-<h1>Your balance amount is ${result}</h1>
+<h1>Your date is ${date}</h1>
+<h1>Your item is ${item}</h1>
+<h1>The price is ${price}</h1>
+<h1>The quantity is ${quantity}</h1>
+<h1>The totalPrice is ${totlPrice}</h1>
 </body>
 </html>

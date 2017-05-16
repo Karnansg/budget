@@ -9,51 +9,15 @@
 <link href="css/style.css" type="text/css" rel="stylesheet">
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="jquery-ui.js"></script>
+<script type="text/javascript" src="jquery.validate.min.js"></script>
 <script type="text/javascript" src="javascript/proj.js"></script>
- 
- 
-<script>
-<!-- 
-        $(document).ready(function(){		
-        	$("#datepicker").datepicker({       		
-				showOn: "button",
-        		buttonImage: "images/calendar.jpg",
-        		buttonImageOnly: true,
-				showButtonPanel:true	
-				});
-        	$("#accordion").accordion({        		
-        		collapsible: true          	   
-        	});
-        	  $(function(){
-        		    $(document).tooltip();
-        		  });        	
-        });-->
-        
-        //form validation code to come here.
-        $("#purchase_form").validate({
-        	rules: {
-        		item:{
-        			required:true,
-        			message:{}
-        		},
-        		price:{
-        			required:true,
-        			message:{}
-        		},
-        		quantity:{
-        			required:true,
-        			message:{}
-        		}       
-        	}       	
-        });
-       </script>
-       
+<script type="text/javascript" src="javascript/formvalidate.js"></script>       
 </head>
 <body> 
 <section id="main">
 	<fieldset class="ui-widget ui-widget-content">
-		<legend>Form</legend>	
-			<form id="purchase_form" name="purchase_form" action="index.jsp" method="post" >
+		<legend>Form</legend> 	
+			<form id="purchase_form" name="purchase_form" action="calculateBalance" method="post" >
 				<div id="accordion">	
 					<h3>Purchase</h3>
 					<div><label for="Date">Date:</label>
