@@ -12,7 +12,12 @@ import javax.servlet.http.HttpSession;
 
 import com.karnan.budgetapplication.business.Amount;
 import com.karnan.budgetapplication.business.Compute;
+import com.karnan.budgetapplication.business.Expenditure;
+import com.karnan.budgetapplication.business.Income;
 import com.karnan.budgetapplication.database.AmountDB;
+import com.karnan.budgetapplication.database.ExpenditureDB;
+import com.karnan.budgetapplication.database.IncomeDB;
+
 
 @WebServlet("/CalculateBalanceServlet")
 public class CalculateBalanceServlet extends HttpServlet {
@@ -26,32 +31,50 @@ public class CalculateBalanceServlet extends HttpServlet {
 	}	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String url = "/result.jsp";
+		//get the user id via the session
+		/****/
+		
 		String date = request.getParameter("datepicker");
 		String item = request.getParameter("item");
 		String price = request.getParameter("price");
 		String quantity = request.getParameter("quantity");		
 		String totalPrice = request.getParameter("totalprice");
 		
-		//int convertedUsedAmount = Integer.parseInt(usedAmount);		
-		int retrievedAmount = AmountDB.selectAmount();
+		//create the expenditure object
+		String userId = "1";
+		Expenditure expenditure = new Expenditure();
+		expenditure.setUserId(Integer.parseInt(userId));
+		expenditure.setPrice(Integer.parseInt(price));
+		expenditure.setDate(date);
+		expenditure.setItem(item);		
+		expenditure.setQuantity(Integer.parseInt(quantity));
+		expenditure.setTotalPrice(Integer.parseInt(totalPrice));
+		
+		
+		//invoke method to insert new row in expenditure table
+		ExpenditureDB.insert(expenditure);		
+		
+		//userId hardcoded for test
+		//String userId = "1";
+		
+		//invoke method to retrieve netpay
+		Income income = IncomeDB.retrieveNetPay(userId);
+		int netPay = income.getNetPay();
 		
 		//invoke method to compute balance
-		Compute compute = new Compute();
+		double remainder = Compute.balance(netPay, Integer.parseInt(totalPrice));
+		
 		//double result = compute.balance(retrievedAmount,convertedUsedAmount);
 		//String displayResult = Double.toString(result);
 		
 		//store the result in the session
-		HttpSession session = request.getSession();
-		//session.setAttribute ("result",result);
+		HttpSession session = request.getSession();		
 		session.setAttribute("date",date);
 		session.setAttribute("item",item);
 		session.setAttribute("price",price);
 		session.setAttribute("quantity",quantity);
 		session.setAttribute("totalPrice",totalPrice);
-		
-		
-		
-		
+		session.setAttribute("remainder",remainder);	
 		
 		//forward the request and response to the view
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
