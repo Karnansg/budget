@@ -5,9 +5,9 @@ $(document).ready(function(){
        		buttonImageOnly: true,
 			showButtonPanel:true	
 			});
-       	$("#accordion").accordion({        		
-       		collapsible: true          	   
-       	});
+//       	$("#accordion").accordion({        		
+//       		collapsible: true          	   
+//       	});
        	$(function(){
         	    $(document).tooltip();
    		  });        	
