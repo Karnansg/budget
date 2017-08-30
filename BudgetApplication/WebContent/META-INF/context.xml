@@ -12,7 +12,6 @@
 	<Realm className = "org.apache.catalina.realm.DataSourceRealm" debug="99"
 		 dataSourceName="jdbc/budget" localDataSource="true"
 		 userTable="UserPass" userNameCol="Username" userCredCol="Password"
-		 userRoleTable="UserRole" roleNameCol="Rolename"/>
-		  -->
-	
+		 userRoleTable="UserRole" roleNameCol="rolename"/>
+		  -->	
 </Context>
