@@ -14,51 +14,50 @@
   </session-config>  
   
   
-  <!-- Define two security roles -->
-  <!-- 
+  <!-- Define two security roles -->  
+    <!-- 
     <security-role>
         <description>regular user</description>
         <role-name>user</role-name>
     </security-role>
+    
     <security-role>
         <description>system administrators</description>
         <role-name>admin</role-name>
     </security-role>
-     -->
-  
-    
-     <!-- Restrict access to all files in the /admin folder -->
+       -->
+       
+     <!-- Restrict access to all files in the /admin folder -->        
     <!-- 
     <security-constraint>
     	<web-resource-collection>
             <web-resource-name>Protected Area</web-resource-name>
-            <url-pattern>/admin/*</url-pattern>
+            <url-pattern>/admin/*</url-pattern>                        
         </web-resource-collection>     
-         -->
-        <!-- Authorize the programmer and service roles -->
-        <!--  
+          --> 
+        <!-- Authorize the admin and user roles -->
+        <!--           
         <auth-constraint>
             <role-name>admin</role-name>
             <role-name>user</role-name>
         </auth-constraint>
     </security-constraint>
      -->
-     <!-- 
+    <!-- FORM based authentication -->     
+      <!-- 
       <login-config>
   		<auth-method>FORM</auth-method>
   			<form-login-config>
-  			<form-login-page>/admin/login.jsp</form-login-page>  			
-  			<form-error-page>/admin/login_error.jsp</form-error-page>
+  				<form-login-page>/admin/login.jsp</form-login-page>  			
+  				<form-error-page>/admin/login_error.jsp</form-error-page>
   		</form-login-config>  	
-  	</login-config>
-  	 -->
-      
-      
+  	</login-config>      
+       -->
   <welcome-file-list>    
     <!-- <welcome-file>test.jsp</welcome-file> -->
     <!-- <welcome-file>/admin/admintest.jsp</welcome-file> -->
     <!-- <welcome-file>logintest.jsp</welcome-file> -->
-    <welcome-file>index.jsp</welcome-file>        
+    <welcome-file>index.jsp</welcome-file>          
   </welcome-file-list>  
  
 </web-app>
