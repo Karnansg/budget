@@ -45,6 +45,7 @@ public class CalculateBalanceServlet extends HttpServlet {
 		String totalPrice = request.getParameter("totalprice");
 		
 		//create the expenditure object
+		//userId hardcoded for test
 		String userId = "1";
 		Expenditure expenditure = new Expenditure();
 		Expenditure expenditureData = new Expenditure();
@@ -71,10 +72,8 @@ public class CalculateBalanceServlet extends HttpServlet {
 		*/
 		
 		//invoke method to insert new row in expenditure table
-		ExpenditureDB.insert(expenditure);		
-		
-		//userId hardcoded for test
-		//String userId = "1";
+		ExpenditureDB.insert(expenditure);	
+	
 		
 		//invoke method to retrieve netpay
 		Income income = IncomeDB.retrieveNetPay(userId);
