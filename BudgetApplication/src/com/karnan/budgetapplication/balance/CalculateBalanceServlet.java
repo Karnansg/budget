@@ -78,10 +78,7 @@ public class CalculateBalanceServlet extends HttpServlet {
 		int netPay = income.getNetPay();
 		
 		//invoke method to compute balance
-		double remainder = Compute.balance(netPay, Integer.parseInt(totalPrice));
-		
-		//double result = compute.balance(retrievedAmount,convertedUsedAmount);
-		//String displayResult = Double.toString(result);
+		double remainder = Compute.balance(netPay, Integer.parseInt(totalPrice));	
 		
 		//store the result in the session
 		HttpSession session = request.getSession();		
