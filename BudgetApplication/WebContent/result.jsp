@@ -49,7 +49,7 @@ $(document).ready(function(){
 			</div>		
 			<div>
 				<fieldset class="ui-widget ui-widget-content">
-					<legend>Add Item</legend>
+					<!-- <legend>Add Item</legend> -->
 					Click <a href="index.jsp">here</a> to add more items.	
 				</fieldset>
 		</div>	
