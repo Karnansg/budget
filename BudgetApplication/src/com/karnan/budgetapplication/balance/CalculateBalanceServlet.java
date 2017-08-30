@@ -35,8 +35,6 @@ public class CalculateBalanceServlet extends HttpServlet {
 	}	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String url = "/result.jsp";
-		//get the user id via the session
-		/****/
 		
 		String date = request.getParameter("datepicker");
 		String item = request.getParameter("item");
