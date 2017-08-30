@@ -8,6 +8,7 @@ public class Expenditure {
 	private String item;
 	private int quantity;
 	private int totalPrice;
+	private int remainder;
 	
 	public String getExpenseId() {
 		return expenseId;
@@ -50,5 +51,11 @@ public class Expenditure {
 	}
 	public void setTotalPrice(int totalPrice) {
 		this.totalPrice = totalPrice;
+	}
+	public int getRemainder() {
+		return remainder;
+	}
+	public void setRemainder(int remainder) {
+		this.remainder = remainder;
 	}
 }
