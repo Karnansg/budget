@@ -4,14 +4,30 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Welcome</title> 
+<title>Welcome</title>
+<link href="css/redmond/jquery-ui.css" type="text/css" rel="stylesheet"> 
 <link href="jquery-ui.css" type="text/css" rel="stylesheet">
 <link href="css/style.css" type="text/css" rel="stylesheet">
-<script type="text/javascript" src="jquery.js"></script>
-<script type="text/javascript" src="jquery-ui.js"></script>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="javascript/jquery-ui.js"></script>
 <script type="text/javascript" src="jquery.validate.min.js"></script>
 <script type="text/javascript" src="javascript/proj.js"></script>
-<script type="text/javascript" src="javascript/formvalidate.js"></script>       
+<script type="text/javascript" src="javascript/formvalidate.js"></script>      
+<script language = "Javascript">
+$(document).ready(function() {
+	  $("#price").on("blur", calculate);
+	  $("#quantity").on("blur", calculate);	
+	});
+
+	function calculate(){
+	  var i = $("#price").val();
+	  var k = $("#quantity").val();
+	  var total = i*k;    
+	  $("#totalprice").val(total);                
+	}	    
+</script>
+ 
 </head>
 <body> 
 <section id="main">
@@ -29,20 +45,14 @@
 					<label for="Quantity">Quantity:</label>
 					<input type="text" id="quantity" title="Enter the quantity." name="quantity"><br>				
 					<label for="TotalPrice">TotalPrice:</label>
-					<input type="text" id="totalprice" name="totalprice">
+					<input type="text" id="totalprice" name="totalprice" readonly>
 					</div>
-					<h3>Expenditure</h3>
-					<div>
-					<label for="DailyTotal">DailyTotal:</label>
-					<input type="text" id="dailytotal" value=""readonly><br>				
-					<label for="WeeklyTotal">WeeklyTotal:</label>
-					<input type="text" id="weeklytotal" readonly><br>				
-					<label for="MonthlyTotal">MonthlyTotal:</label>
-					<input type="text" id="monthlytotal" readonly>
-					</div>	
+					
 				</div>				
 				<input class="ui-button ui-widget  ui-corner-all" type="submit" value="Submit">	
-				<input class="ui-button ui-widget ui-corner-all" type="reset" value="Clear">					
+				<input class="ui-button ui-widget ui-corner-all" type="reset" value="Clear">
+				<!-- <input  type="submit" value="Submit"> -->	
+				<!-- <input  type="reset" value="Clear"> -->							
 				</div>
 			</form>		
 	</fieldset>
